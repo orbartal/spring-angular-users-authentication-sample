@@ -1,0 +1,16 @@
+<div class="col-xs-3">
+
+	  <button ng-click="vm.logout()">logout</button>
+	  <p>Current login user: {{vm.currentUser}}</p>
+	  <p>Admin can see all users but limited user can see only himself.</p>
+
+      <div class="alert alert-info" role="alert" ng-if="!vm.users || vm.users.length == 0">
+        There are no user yet.
+      </div>
+      
+      <div ng-if="vm.users.length > 0">
+	      <div ng-repeat="user in vm.users">
+	      	{{user}}
+	      </div>
+      </div>
+</div>
