@@ -1,0 +1,35 @@
+{
+  "name": "AngularSpring",
+  "homepage": "https://github.com/orbartal",
+  "authors": [
+    "orbartal <orbartal@gmail.com>"
+  ],
+  "description": "Example of spring boot server with angular client",
+  "main": "application",
+  "keywords": [
+    "spring",
+    "boot",
+    "angular",
+    "example",
+    "users",
+    "login",
+    "token",
+    "security"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "*",
+    "angular-ui-router": "*",
+    "angular-cookies": "*",
+    "bootstrap": "*"
+  }
+}
