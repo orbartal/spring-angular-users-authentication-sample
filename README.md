@@ -14,3 +14,4 @@ https://stormpath.com/blog/secure-single-page-app-problem
 https://stormpath.com/blog/token-auth-for-java
 
 Cors - http://stackoverflow.com/questions/25310450/cross-origin-resource-sharing-cors-concept
+
