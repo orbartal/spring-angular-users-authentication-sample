@@ -41,7 +41,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
     	if ("yes".equalsIgnoreCase(strSecurityType)){
-    		configureDisableCsrf (http);
+    		configureSecure (http);
     	}else if ("no".equalsIgnoreCase(strSecurityType)){
     		configureUnsecure (http);
     	}else{
@@ -58,8 +58,8 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     //Enforce users authentication (login).
-    protected void configureDisableCsrf(HttpSecurity http) throws Exception {
-    	//Enable login (with password and user name) from any client app not just this server built in client.
+    protected void configureSecure(HttpSecurity http) throws Exception {
+    	//Allow request from client outside the server domain. XAuthTokenFilter is the only filter.
         http.csrf().disable(); 
         //XAuthTokenConfigurer is used to validate and get UserDetails from client login info.
         SecurityConfigurer<DefaultSecurityFilterChain, HttpSecurity> 
