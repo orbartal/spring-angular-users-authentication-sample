@@ -67,19 +67,19 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.apply(securityConfigurerAdapter);
         
         //Config which pages are available for anonymous users and which require authentication.
-        http.httpBasic().and().authorizeRequests().antMatchers(
-        	  "/",
-     		  "/index.html",
-     		  "/app/app.js",
-     		  "/app/config.js",
-     		  "/app/lib/**",
-     		  "/app/pages/login/**",
-     		  "/users/loginWithUserNameAndPassword",
-     		  "/users/loginWithUserNameAndPassword**",
-     		  "/**/*.js",  
-     		  "/**/*.css"
-     		  ).permitAll()
-       .anyRequest().authenticated()
-       .and().logout().logoutSuccessUrl("/");
+        http.httpBasic().and().authorizeRequests()
+         	.antMatchers(getPublicResources()).permitAll()
+         	.anyRequest().authenticated()
+         	.and().logout().logoutSuccessUrl("/");
     }
+
+	private String[] getPublicResources() {
+		String[] arrPublicResources = {"/",
+	       		  "/index.html",
+	       		  "/app/pages/login/**",
+	       		  "/users/loginWithUserNameAndPassword",
+	       		  "/**/*.js",  
+	       		  "/**/*.css"};
+		return arrPublicResources;
+	}
 }
